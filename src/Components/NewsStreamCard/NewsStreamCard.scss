@@ -1,0 +1,262 @@
+$imp: !important;
+@mixin flexcenter(){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsStreamCard{
+    position: relative;
+    width: 100%;
+    display:flex;
+    flex-direction: row;
+    padding: 0px $imp;
+    background-color: white;
+    padding: 9px 12px $imp;
+    border-bottom: 1.2px solid #E6ECF0;
+
+    &:hover{
+        background-color: rgba(255,255,255,0.65);
+    }
+
+
+    .avatar{
+        position: relative;
+        width: 10%;
+
+        img{
+            width: 48px $imp;
+            height: 48px $imp;
+            border-radius: 50%;
+        }
+        //max-width: 11.5% $imp;
+    }
+    .newsContent{
+        position: relative;
+        width: 90% $imp;
+        >div{
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+            //border: 0.1px solid lightgray;
+        }
+        .title{
+            margin-top: 3px $imp;
+            margin-bottom: 3px $imp;
+            display:flex;
+            align-items: center;
+            .nickname{
+                margin-right: 5px;
+            }
+            .idname{
+                color: gray;
+                font-size: 0.9em;
+            }
+            .timestamp{
+                color: gray;
+                font-size: 0.9em;
+            }
+            .dropBt{
+                position: absolute;
+                right: 0px;
+                //margin: 2px 9px $imp;
+                padding: 2px 9px $imp;
+                outline: none;
+                @include flexcenter();
+
+                &:focus{
+                    >.dropMenu{
+                        display:flex;
+                    }
+
+                }
+
+                >.dropMenu{
+                    position: absolute;
+                    background-color: white;
+                    padding: 10px 0px;
+                    border-radius: 5px;
+                    box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.15);
+                    z-index: 100;
+                    display:none;
+                    justify-content: flex-start;
+                    flex-direction: column;
+                    transform: translate(39%,calc(50% + 20px));
+                    user-select: none;
+                    @media (max-width: 1200px){
+                        transform: translate(-40%,calc(50% + 20px));
+                    }
+                    
+                    >div{
+                        padding: 0px 20px;
+                        white-space: nowrap;
+                        text-align: left;
+                        padding-top: 8px;
+                        padding-bottom: 8px;
+                        font-size: 1.1em;
+                        color: gray;
+                        cursor: pointer;
+                        &:nth-last-child(2){
+                            border-bottom: 1.2px solid #E6ECF0;
+                            margin-bottom: 8px;
+                        }
+                        &:hover{
+                            background-color: orange;
+                            color: white;
+                            
+                        }
+                    }
+
+                    &:before{
+                        content:'';
+                        position:absolute;
+                        width: 15px;
+                        height: 15px;
+                        background-color: white;
+                        left: 20px;
+                        top:0px;
+                        transform: translate(0%,-50%) rotate(45deg);
+                        border-left: 1px solid lightgray;
+                        border-top: 1px solid lightgray;
+
+                        @media (max-width: 1200px){
+                            left: auto;
+                            right: 17px;
+                        }
+                    }
+                }
+            }
+        }
+        .textContent{
+            text-align: left;
+            margin-top: 3px $imp;
+            margin-bottom: 3px $imp;
+
+        }
+        .translateit{
+            color: gray;
+            font-size: 0.8em;
+            margin-top: 5px $imp;
+            margin-bottom: 5px $imp;
+        }
+        .freeStyleContent{
+            margin-top: 3px $imp;
+            margin-bottom: 3px $imp;
+            img{
+                position: relative;
+                width: 100%;
+                height: 300px;
+                border-radius: 12px;
+            }
+        }
+        .actionList{
+            display: flex;
+            justify-content: left;
+            margin-top: 15px;
+            user-select: none;
+            >span{
+                
+                >i{
+                    color: gray;
+                    font-size: 1.2em;
+                    position: relative;
+                    &:hover{
+                        >span{
+                            display:flex;
+                            color: white $imp;
+                        }
+                    }
+                    >span{
+                       display: none;
+                       position: absolute;
+                       white-space: nowrap $imp;
+                       background-color: black !important;
+                       border-radius: 5px;
+                       font-size: 0.75em;
+                       color: white;
+                       user-select: none;
+                       padding: 5px 15px;
+                       top: 0%;
+                       left: 50%;
+                       transform: translate(-50%, -135%);
+                      // display: flex;
+                       justify-content: center;
+                       align-items: center;
+                       &:after{
+                            content:'';
+                            position: absolute;
+                            background-color: black !important;
+                            width: 10px;
+                            height: 10px;
+                            transform: translate(0%,140%) rotate(45deg);
+                       }
+                    }
+
+                }
+                >span{
+                    //border: 0.1px solid gray;
+                    color: gray;
+
+                    margin-left: 5px;
+                    font-size: 0.9em;
+                    font-weight: 600$imp;
+                    
+                }
+                margin-right: 5px;
+                width: 6em;
+                display: flex;
+                justify-content: left;
+                cursor: pointer;
+            }
+
+            .reply{
+                &:hover{
+                    i{
+                        color: blue;
+                    }
+                    span{
+                        color: blue;
+                    }
+                }
+            }
+                .replied{
+                    i{ color: blue; }
+                    span{ color: blue; }
+                }
+            .retweet{
+                &:hover{
+                    display:flex;
+                   i{
+                        color: green;
+                    }
+                    span{
+                        color: green;
+                    }
+                }
+            }
+                .retweeted{
+                    i{ color: green; }
+                    span{ color: green; }
+                }
+
+            .iloveit{
+                &:hover{
+                    display:flex;
+                    i{
+                        color: red;
+                    }
+                    span{
+                        color: red;
+                    }
+                }
+            }
+                .ilovedit{
+                    i{ color: red; }
+                    span{ color: red; }
+                }
+            .sendmsg{
+
+            }
+        }
+    }
+}

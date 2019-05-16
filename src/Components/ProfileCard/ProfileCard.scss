@@ -1,0 +1,86 @@
+
+.profileCard{
+        position: relative;
+        //border: 1px solid red;
+        background-color: white;
+        //user-select: none;
+
+
+        .topPart{
+            background-color: orange;
+            height: 100px;
+            overflow:hidden;
+            padding: 0px !important;
+            .column{
+                padding: 0px !important;
+            }
+        }
+
+        .middlePart{
+            background-color: white;
+            padding: 0px !important;
+
+            .avatar{
+                margin-right: 0px !important;
+                padding-left: 7px !important;
+                
+                img{
+                    border: 2px solid orange;
+                    position: absolute;
+                    transform: translate(0%,-50%) scale(0.92);
+                    
+                }
+            }
+            .userinfo{
+                .nickname{
+                    font-size: 1.25em;
+                    margin-bottom: 3px;
+                }
+                .contactName{
+                    color: rgba(0,0,0,0.36);
+                }
+            }
+        }
+
+        .bottomPart{
+            //height: 100px;
+            white-space: nowrap;
+            display: flex;
+            >div{
+                text-align: left;
+            }
+
+            .tweetArea{
+                
+                .tweet{
+                    color: rgba(0,0,0,0.36);
+                    font-size: 12px;
+                }
+                .count{
+                    color: orange;
+                    font-size: 1.25em;
+                }
+            }
+            .followingArea{
+                .following{
+                    color: rgba(0,0,0,0.36);
+                    font-size: 12px;
+                }
+                .count{
+                    color: orange;
+                    font-size: 1.25em;
+                }
+            }
+            .followerArea{
+                .follower{
+                    color: rgba(0,0,0,0.36);
+                    font-size: 12px;
+                }
+                .count{
+                    color: orange;
+                    font-size: 1.25em;
+                }
+            }
+        }
+
+}

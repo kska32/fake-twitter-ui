@@ -1,0 +1,20 @@
+    .gototop{
+            position:relative;
+            height: 80px;
+            background-color: white;
+            .message{
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                flex-direction: column;
+                user-select: none;
+                cursor: pointer;
+                i{
+                  margin-bottom: 5px;
+                }
+            }
+            .hide{
+                display:none;
+            }
+    }

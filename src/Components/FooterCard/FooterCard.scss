@@ -1,0 +1,51 @@
+
+.FooterCard{
+    //border: 1px solid red;
+    background-color: white;
+    padding-bottom: 3px !important;
+
+    //margin: -14px -14px !important;
+    margin-top: 12px !important;
+
+
+    .firstPart{
+        display:flex;
+        border-bottom: 1px solid #E6ECF0;
+
+        ul{
+            list-style-type: none;
+            padding: 0px;
+            display: flex;
+            color: #657786;
+            font-size: 0.87em;
+            line-height: 1.5em;
+            flex-wrap: wrap;
+            margin: 0px;
+
+            li{
+                white-space: nowrap;
+                margin-right: 5px;
+                &:first-of-type{
+                    margin-right: 10px;
+                }
+                a{
+                    color: #657786;
+                }
+            }
+        }
+    }
+    .secondPart{
+        a{
+            font-size: 0.87em;
+            line-height: 1.5em;
+            color: orange;
+            &:hover{
+                text-decoration: underline;
+                i{
+                    text-decoration: none;
+                }
+            }
+        }
+
+    }
+}
