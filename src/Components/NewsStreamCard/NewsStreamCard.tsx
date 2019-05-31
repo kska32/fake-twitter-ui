@@ -4,8 +4,29 @@ import './NewsStreamCard.scss';
 import faker from 'faker';
 import { Link } from 'react-router-dom';
 
-export default class NewsStreamCard extends Component{
-    constructor(props){
+
+interface IProps{
+
+}
+interface IState{
+    avatar: string,
+    idname: string,
+    nickname: string,
+    sentences: string,
+    sentenceImg: string,
+    timestamp: number,
+    replyCount:number,
+    retweetCount: number,
+    iloveitCount: number,
+
+    replied: boolean,
+    retweeted: boolean,
+    ilovedit: boolean
+}
+
+
+export default class NewsStreamCard extends Component<IProps, IState>{
+    constructor(props:any){
         super(props);
         this.state = {
             avatar: faker.internet.avatar(),

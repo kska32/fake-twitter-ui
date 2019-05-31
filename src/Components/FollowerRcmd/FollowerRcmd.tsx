@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React,{Component, SyntheticEvent} from 'react';
 import {Grid,Image, Button} from 'semantic-ui-react';
 import './FollowerRcmd.scss';
 import faker from 'faker';
@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 //import sprite from "./web_sprite.png";
 
 export default class FollowerRcmd extends Component{
-    constructor(props){
+    constructor(props:any){
         super(props);
 
     }
@@ -49,8 +49,27 @@ export default class FollowerRcmd extends Component{
     }
 }
 
-class RcmdColumn extends Component{
-    constructor(props){
+
+
+interface IRcmdColState{
+    _avatar:string, 
+    _nickname:string,
+    _username:string,
+    isWhite:boolean, 
+    isFollowed:boolean
+}
+
+interface IRcmdColProps{
+    avatar?: string,
+    nickname?: string,
+    idname?: string,
+    className?: string,
+    style?: string
+}
+
+
+class RcmdColumn extends Component<IRcmdColProps,IRcmdColState>{
+    constructor(props:any){
         super(props);
         this.state = {
             _avatar: faker.internet.avatar(),
@@ -60,7 +79,7 @@ class RcmdColumn extends Component{
             isFollowed: false
         }
     }
-    closeIt(e){
+    closeIt(e:SyntheticEvent){
         const unitDur = 300;
         this.setState({            
             isWhite:true
@@ -82,14 +101,14 @@ class RcmdColumn extends Component{
         },unitDur*2);
     }
 
-    mouseEnterLink(e,avatar,nickname,idname){
+    mouseEnterLink(e:SyntheticEvent, avatar:string, nickname:string, idname:string){
         console.log(avatar, nickname, idname);
     }
 
-    clickFollowBt(e,curState){
+    clickFollowBt(e:SyntheticEvent, curState:boolean){
         this.setState({isFollowed: !curState});
         window.setTimeout(()=>{
-            this.closeIt();
+            this.closeIt(e);
         },1000)
         
     }
@@ -103,7 +122,7 @@ class RcmdColumn extends Component{
             let idn = (idname || _username).slice(0,10>nkn.length?10-nkn.length+4:4);
                   idn = (nkn+idn).length>=14 ? idn+'...' : idn;            
 
-            return <Grid.Row className={'rcmdCol ' + (this.props.className||'') + (isWhite ? ' whiteBoard':'')} style={{...this.props.style}}>
+            return <Grid.Row className={'rcmdCol ' + (this.props.className||'') + (isWhite ? ' whiteBoard':'')} style={this.props.style}>
                     <Grid.Column width={4} className='avatar'>
                         <Link to={'/id/'+nkn} onMouseEnter={(e)=>{this.mouseEnterLink(e,ava,nkn,idn)}}>
                             <Image src={ava} circular bordered size='tiny'/>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, SyntheticEvent } from 'react';
 import { Grid, Image, Button, Icon } from 'semantic-ui-react';
 import './TweetBox.scss';
 import faker from 'faker';
@@ -6,8 +6,21 @@ import { Link } from 'react-router-dom';
 
 import { Line, Circle } from 'rc-progress';
 
-export default class TweetBox extends Component{
-    constructor(props){
+
+interface IProps{
+
+}
+
+interface IState{
+    avatar: string,
+    inputValLenPer: number,
+    downCounter: number,
+    inputText: string,
+    inputValLen?: number
+}
+
+export default class TweetBox extends Component<IProps,IState>{
+    constructor(props: any){
         super(props);
 
         this.state = {
@@ -18,16 +31,15 @@ export default class TweetBox extends Component{
         }
     }
 
-    inputHandle(e){
+    inputHandle(e: SyntheticEvent){
             e.persist();
             const maxLen = 260;
-            let valLen = e.target.innerText.length;
-
-            if(valLen===0){//for Edege in the case that edge insert <BR/> to contentEditable ELEMENT.
-                e.target.innerHTML = '';
-            }
-            if(e.target.childNodes[0] && e.target.childNodes[0].nodeName.toUpperCase()==='BR'){
-                e.target.childNodes[0].remove();
+            
+            let etar =  (e.target as HTMLDivElement);
+            let valLen = etar.textContent ? etar.textContent.length : 0;
+            
+            if(valLen===0 || (etar.childNodes[0] && etar.childNodes[0].nodeName.toUpperCase()==='BR')){
+                etar.childNodes[0].remove();
             }
 
             this.setState({ 
@@ -45,7 +57,7 @@ export default class TweetBox extends Component{
             </Grid.Column>
             <Grid.Column width={14} className='inputBox'>
                 <div className='inputBoxWrapper'>
-                    <div contentEditable='true' className='inputBoxCore' id='greenX' placeholder='무슨 일이 일어나고 있나요?' 
+                    <div contentEditable={true} className='inputBoxCore' id='greenX' placeholder='무슨 일이 일어나고 있나요?' 
                         onInput={this.inputHandle.bind(this)} 
                     />
                     <Icon name='smile outline'  className='faces' />

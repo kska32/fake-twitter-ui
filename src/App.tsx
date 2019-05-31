@@ -4,7 +4,7 @@ import './App.scss';
 
 import Navbar from './Components/Navbar/Navbar';
 import {BrowserRouter as Router, Link} from 'react-router-dom';
-import {Container,Grid,Button, Segment, Loader, Icon} from 'semantic-ui-react';
+import {Grid} from 'semantic-ui-react';
 
 import ProfileCard from './Components/ProfileCard/ProfileCard';
 import TrendsCard from './Components/TrendsCard/TrendsCard';
@@ -16,12 +16,19 @@ import GotoTop from './Components/GotoTop/GotoTop';
 
 import uuidv1 from 'uuid/v1';
 
+interface IState {
+    newsStreamCardQueue: Array<string>,
+    isLoading: boolean
+}
+interface IProps{
 
-export class App extends Component {
-    constructor(props){
+}
+
+export class App extends Component <IProps,IState> {
+    constructor(props:IProps){
           super(props);
           this.state= {
-              newsStreamCardQueue:[0,1,2,3],
+              newsStreamCardQueue:['0','1','2','3'],
               isLoading: false
           }
           console.log('Twitter-Faker V1.0.0');
@@ -47,7 +54,7 @@ export class App extends Component {
             });
         });
 
-        observer.observe(document.querySelector('.theBottom'));
+        observer.observe(document.querySelector('.theBottom') as Element);
     }
 
     render(){ 
@@ -86,5 +93,51 @@ export class App extends Component {
           );
     }
 }
+
+//
+//
+
+type DomainId<T extends string> = {
+    type: T,
+    value: number,
+}
+
+// CustomerId
+type CustomerId = DomainId<'CustomerId'>;
+const createCustomerId = (value: number): CustomerId => ({ type: 'CustomerId', value });
+
+// Product Id
+type ProductId = DomainId<'ProductId'>;
+const createProductId = (value: number): ProductId => ({ type: 'ProductId', value });
+
+// Example class
+class Example {
+    static avoidAccidentalEquivalence(id: CustomerId) {
+        // Implementation
+    }
+
+    static useEquivalence(id: number) {
+        // Implementation
+    }
+}
+
+var customerId = createCustomerId(1);
+var productId = createProductId(5);
+
+// Allowed
+Example.avoidAccidentalEquivalence(customerId);
+
+// Errors 'Supplied parameters do not match signature of call target'
+//Example.avoidAccidentalEquivalence(productId);
+
+// Allowed
+Example.useEquivalence(customerId.value);
+
+// Allowed
+Example.useEquivalence(productId.value);
+
+
+let firstNo = 12345567;
+console.log(firstNo);
 
 export default App;

@@ -2,7 +2,13 @@ import React,{Component} from 'react';
 import {Grid,Image} from 'semantic-ui-react';
 import './ProfileCard.scss';
 import faker from 'faker';
-window.faker = faker;
+
+Object.defineProperty(window,'faker',{
+    value: faker,
+    writable: true,
+    configurable: true,
+    enumerable: true
+})
 
 export default class ProfileCard extends Component{
     render(){

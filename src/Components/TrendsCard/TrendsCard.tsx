@@ -1,8 +1,9 @@
 import React,{Component} from 'react';
-import {Grid,Image} from 'semantic-ui-react';
+import {Grid} from 'semantic-ui-react';
 import './TrendsCard.scss';
 import faker from 'faker';
 import {Link} from 'react-router-dom';
+
 
 
 export default class TrendsCard extends Component{
@@ -19,19 +20,19 @@ export default class TrendsCard extends Component{
     }
 }
 
-function TrendsColumn({keyword,tweetCount}){
-        let kw = keyword || faker.random.word() ;
-        let tc = tweetCount || faker.random.number();
 
-        function numberWithCommas(x) {
+ let TrendsColumn = ({keyword = faker.random.word(), tweetCount = faker.random.number()}: {keyword?:string,tweetCount?:number}):any=>{
+ 
+        let numberWithCommas = (x:string):string => {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
 
-        return  <Grid.Column width={16} textAlign="left" className='trendsCol'>
-            <Link to={`/search?q=${kw}&src=tren`}>
-                <div className='keyword'>#{kw}</div>
-                { parseInt(tc)>=100 && <div className='tweetCount' >{numberWithCommas(tc)}트윗</div> }
+        return (<Grid.Column width={16} textAlign="left" className='trendsCol'>
+            <Link to={`/search?q=${keyword}&src=tren`}>
+                <div className='keyword'>#{keyword}</div>
+                { parseInt(tweetCount.toString())>=100 && <div className='tweetCount' >{numberWithCommas(tweetCount.toString())}트윗</div> }
             </Link>
-        </Grid.Column>
+        </Grid.Column>);
     
-}
+};
+

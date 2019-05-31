@@ -3,6 +3,7 @@ import {Grid,Icon,Button,Search ,Segment, Container} from 'semantic-ui-react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import './Navbar.scss';
 
+
 export default class Navbar extends Component{
     render(){
         return <div className='Navbar'>

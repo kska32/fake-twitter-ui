@@ -1,12 +1,18 @@
 import React,{Component} from 'react';
 import {Grid,Loader,Icon} from 'semantic-ui-react';
 import "./GotoTop.scss";
-import PropTypes from 'prop-types';
 
-export default class GotoTop extends Component{
-    static propTypes = {
-        isLoading: PropTypes.bool
-    }
+interface IState{
+
+}
+interface IProps{
+    isLoading: boolean,
+    className: string
+}
+
+
+export default class GotoTop extends Component <IProps, IState>{
+
     render(){
         let {isLoading,className} = this.props;
         return <Grid.Row className={'gototop ' + (className||'')}   >
