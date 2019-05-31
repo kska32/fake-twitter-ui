@@ -7,7 +7,7 @@ interface IState{
 }
 interface IProps{
     isLoading: boolean,
-    className: string
+    className: string 
 }
 
 
