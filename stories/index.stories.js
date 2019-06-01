@@ -45,7 +45,7 @@ storiesOf('twitterUI',module)
   </div>
 ))
 .add('ProfileCard', ()=>(
-<div style={leftStyle}>
+<div style={{...leftStyle, paddingTop:'14px'}}>
   <ProfileCard/> 
   </div>
 ))
@@ -56,7 +56,7 @@ storiesOf('twitterUI',module)
 ))
 
 .add('FollowerRcmd', ()=>(
-    <div style={leftStyle}>
+    <div style={{...leftStyle, paddingTop:'14px'}}>
       <Router>
       <FollowerRcmd/>
       </Router>
