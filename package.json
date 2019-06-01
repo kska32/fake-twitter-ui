@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "faker": "^4.1.0",
     "rc-progress": "^2.3.0",
     "react": "^16.8.6",
@@ -17,14 +17,16 @@
     "redux-saga": "^1.0.2",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.87.1",
-    "typescript": "^3.4.5",
+    "typescript": "^3.5.1",
     "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build && xcopy \"./build\"  \"./docs\" /E /I /Y",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -42,6 +44,11 @@
     ]
   },
   "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@storybook/addon-actions": "^5.0.11",
+    "@storybook/addon-links": "^5.0.11",
+    "@storybook/addons": "^5.0.11",
+    "@storybook/react": "^5.0.11",
     "@types/faker": "^4.1.5",
     "@types/jest": "^24.0.13",
     "@types/node": "^12.0.4",
@@ -50,6 +57,7 @@
     "@types/react-dom": "^16.8.4",
     "@types/react-router-dom": "^4.3.3",
     "@types/uuid": "^3.4.4",
+    "babel-loader": "^8.0.6",
     "node-sass": "^4.12.0"
   }
 }

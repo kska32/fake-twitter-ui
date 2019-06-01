@@ -2,7 +2,7 @@ import React, { Component, SyntheticEvent } from 'react';
 import { Grid, Image, Button, Icon } from 'semantic-ui-react';
 import './TweetBox.scss';
 import faker from 'faker';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 import { Line, Circle } from 'rc-progress';
 
@@ -39,7 +39,7 @@ export default class TweetBox extends Component<IProps,IState>{
             let valLen = etar.textContent ? etar.textContent.length : 0;
             
             if(valLen===0 || (etar.childNodes[0] && etar.childNodes[0].nodeName.toUpperCase()==='BR')){
-                etar.childNodes[0].remove();
+                etar.childNodes[0] && etar.childNodes[0].remove();
             }
 
             this.setState({ 
