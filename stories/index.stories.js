@@ -38,7 +38,7 @@ let middleStyle={width:'600px',borderRadius:'5px',border:'2px dashed black',marg
 
 storiesOf('twitterUI',module)
 .add('footer-card', ()=>(
-  <div style={{...leftStyle, paddingTop:'14px',paddingBottom:'14px'}}>
+  <div style={{...leftStyle, paddingTop:'14px', paddingBottom:'14px'}}>
     <Router>
       <FooterCard/>
     </Router>
