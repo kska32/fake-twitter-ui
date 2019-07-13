@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "./main.css",
+    "main.js": "./main.9fc9316a8bd0d480103f.bundle.js",
+    "main.css.map": "./main.css.map",
+    "main.js.map": "./main.9fc9316a8bd0d480103f.bundle.js.map",
+    "runtime~main.js": "./runtime~main.9fc9316a8bd0d480103f.bundle.js",
+    "runtime~main.js.map": "./runtime~main.9fc9316a8bd0d480103f.bundle.js.map",
+    "vendors~main.css": "./vendors~main.css",
+    "vendors~main.js": "./vendors~main.9fc9316a8bd0d480103f.bundle.js",
+    "vendors~main.css.map": "./vendors~main.css.map",
+    "vendors~main.js.map": "./vendors~main.9fc9316a8bd0d480103f.bundle.js.map",
+    "iframe.html": "./iframe.html",
+    "precache-manifest.9f3fa88a4eb0bbdd1a5c6ef0d2c2dbd0.js": "./precache-manifest.9f3fa88a4eb0bbdd1a5c6ef0d2c2dbd0.js",
+    "service-worker.js": "./service-worker.js",
+    "static/media/semantic.min.css": "./static/media/outline-icons.ef60a4f6.woff",
+    "static/media/FollowerRcmd.scss": "./static/media/web_sprite.5bbeed24.png"
+  }
+}

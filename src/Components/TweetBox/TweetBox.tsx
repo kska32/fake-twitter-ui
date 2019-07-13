@@ -35,7 +35,7 @@ export default class TweetBox extends Component<IProps,IState>{
             e.persist();
             const maxLen = 260;
             
-            let etar =  (e.target as HTMLDivElement);
+            let etar = (e.target as HTMLDivElement);
             let valLen = etar.textContent ? etar.textContent.length : 0;
             
             if(valLen===0 || (etar.childNodes[0] && etar.childNodes[0].nodeName.toUpperCase()==='BR')){
