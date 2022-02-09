@@ -3,6 +3,6 @@
 
 <p>
     <h2>
-    <a href="https://kska32.github.io/fake-twitter-ui/" target='_blank'>⇨ twitter.com</a>
+    <a href="https://kska32.github.io/fake-twitter-ui/" target='_blank'>⇨ Twitter.com</a>
     <h2>
 </p>
